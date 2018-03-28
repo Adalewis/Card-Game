@@ -73,6 +73,7 @@ h1 {
     -webkit-backface-visibility: visible;
     backface-visibility: visible;
     font-size: 33px;
+    /*backface-visibility is used to show backside of element when flipped.*/
 }
 
 .deck .card.match {
@@ -82,10 +83,10 @@ h1 {
     -webkit-backface-visibility: visible;
     backface-visibility: visible;
     pointer-events: none;
+    /*pointer-events is used to lock cards when they match.*/
 }
 
 .deck .card.unmatched {
-    
     -webkit-backface-visibility: visible;
     backface-visibility: visible;
     background: #02b3e4;
