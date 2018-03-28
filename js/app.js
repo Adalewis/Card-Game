@@ -5,7 +5,7 @@ var card = document.querySelectorAll(".card");
 var cards = [...card];
 var move = 0;
 const deck = document.querySelector(".deck");
-
+const shownCards = [];
 
 /*
  * Display the cards on the page
@@ -37,6 +37,27 @@ function start() {
 }
 
 document.body.onload = start;
+
+var flipCard = function () {
+    this.classList.toggle("open");
+    const open = document.querySelectorAll(".open");
+    if (open.length ==2) {
+        let choice1 = open[0];
+        let icon1 = choice1.querySelector("I");
+        var card1 = icon1.classList;
+        fafa1 = card1.value;
+        shownCards.push(fafa1);
+        let choice2 = open[1];
+        let icon2 = choice2.querySelector("I");
+        var card2 = icon2.classList;
+        fafa2 = card2.value;
+        shownCards.push(fafa2);
+    }
+        else {
+            console.log("pick another card");
+        }
+    console.log(shownCards);
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
