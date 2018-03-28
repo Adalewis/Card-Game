@@ -64,6 +64,27 @@ for (var i = 0; i < cards.length; i++) {
     card.addEventListener("click", flipCard);
 };
 
+function match() {
+    var element = document.querySelectorAll(".open");
+    if (fafa1 == fafa2) {
+        console.log("true");
+        element[0].classList.toggle("match");
+        element[1].classList.toggle("match");
+        element[0].classList.remove("open");
+        element[1].classList.remove("open");
+        element[0].classList.remove("unmatched");
+        element[1].classList.remove("unmatched");
+      } else {
+          setTimeout(function() {
+            element[0].classList.toggle("unmatched");
+            element[1].classList.toggle("unmatche");
+            element[0].classList.remove("open");
+            element[1].classList.remove("open");
+            shownCards.pop([0]);
+            shownCards.pop([1]);
+          }, 1000);
+      }
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
