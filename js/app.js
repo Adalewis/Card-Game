@@ -35,9 +35,10 @@ function start() {
         deck.appendChild(crd);
     });
 }
-
+/*shuffles automatically when page loads*/
 document.body.onload = start;
-
+/*displays the card's symbol
+pushes flipped cards into an array*/
 var flipCard = function () {
     this.classList.toggle("open");
     const open = document.querySelectorAll(".open");
@@ -58,12 +59,15 @@ var flipCard = function () {
         }
     console.log(shownCards);
 }
-
+/*sets up the event listener for a card. If a card is clicked*/
 for (var i = 0; i < cards.length; i++) {
     card = cards[i];
     card.addEventListener("click", flipCard);
 };
-
+/*Checks to see if the two cards match.
+If they match cards are locked in open position.
+If the cards do not match, they are removed from
+the list and the card's symbol is hidden.*/
 function match() {
     var element = document.querySelectorAll(".open");
     if (fafa1 == fafa2) {
@@ -85,7 +89,8 @@ function match() {
           }, 1000);
       }
 }
-
+/*Function to be called upon when repeat is clicked
+to reset board.*/
 function restart() {
     for (var i = 0; i < cards.length; i++) {
         cards[i].classList.remove("match");
