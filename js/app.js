@@ -58,6 +58,13 @@ var flipCard = function () {
         }
     console.log(shownCards);
 }
+
+for (var i = 0; i < cards.length; i++) {
+    card = cards[i];
+    card.addEventListener("click", flipCard);
+};
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
