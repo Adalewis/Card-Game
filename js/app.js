@@ -1,12 +1,17 @@
 /*
  * Create a list that holds all of your cards
  */
-var card = document.querySelectorAll(".card");
-var cards = [...card];
-var move = 0;
+let card = document.querySelectorAll(".card");
+let cards = [...card];
+let move = 0;
+const stars = document.querySelector(".stars");
+const star1 = stars.querySelectorAll("I")[2];
+const star2 = stars.querySelectorAll("I")[1];
+const star3 = stars.querySelectorAll("I")[0];
+const deck = document.querySelector(".deck");
 const deck = document.querySelector(".deck");
 const shownCards = [];
-
+let matchedCard = document.querySelector(".match");
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -53,6 +58,8 @@ var flipCard = function () {
         var card2 = icon2.classList;
         fafa2 = card2.value;
         shownCards.push(fafa2);
+        move++
+        match();
     }
         else {
             console.log("pick another card");
@@ -70,7 +77,7 @@ If they match cards are locked in open position.
 If the cards do not match, they are removed from
 the list and the card's symbol is hidden.*/
 function match() {
-    var element = document.querySelectorAll(".open");
+    const element = document.querySelectorAll(".open");
     if (fafa1 == fafa2) {
         console.log("true");
         element[0].classList.toggle("match");
@@ -79,6 +86,7 @@ function match() {
         element[1].classList.remove("open");
         element[0].classList.remove("unmatched");
         element[1].classList.remove("unmatched");
+        win();
       } else {
           setTimeout(function() {
             element[0].classList.toggle("unmatched");
@@ -93,6 +101,7 @@ function match() {
 /*Function to be called upon when repeat is clicked
 to reset board.*/
 function restart() {
+    move = 0;
     for (var i = 0; i < cards.length; i++) {
         cards[i].classList.remove("match");
         cards[i].classList.remove("unmatched");
@@ -102,6 +111,7 @@ function restart() {
         }
     }
     start();
+    moveCounter();
 }
 
 const reset = document.querySelector(".restart");
@@ -122,6 +132,18 @@ function scorePanel() {
           stars.removeChild(star3);
         } else {
             console.log("starpower");
+          }
+}
+
+function rating() {
+    if (move < 10) {
+        score = "3 stars";
+    } else if (move < 14 && move > 10) {
+        score = "2 stars";
+      } else if (move < 18 && move > 14) {
+          score = "1 star";
+        } else {
+            score = "0 stars";
           }
 }
 
