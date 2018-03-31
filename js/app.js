@@ -12,6 +12,7 @@ const deck = document.querySelector(".deck");
 const deck = document.querySelector(".deck");
 const shownCards = [];
 let matchedCard = document.querySelector(".match");
+let timeStamp = [];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -121,7 +122,7 @@ function win() {
       let modal = document.querySelector(".modal");
       let h1 = modal.querySelector("h1");
       if (openedCards.length > 15){
-            //timer();
+            timer();
             rating();
             modal.style.display = "block";
             h1.innerHTML = "Congratulations, you have a score of " + score +
@@ -136,6 +137,16 @@ function moveCounter() {
     let movesCount = document.querySelector(".moves");
     movesCount.innerHTML = move
     scorePanel();
+}
+
+function startTime() {
+    beginTime = Date.now();
+    timeStamp.push(beginTime);
+}
+
+function timer() {
+    mill = Date.now() - timeStamp[0];
+    time = Math.floor(mill/1000);
 }
 
 function scorePanel() {
