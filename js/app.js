@@ -110,5 +110,17 @@ reset.addEventListener("click", restart);
 function moveCounter() {
     let movesCount = document.querySelector(".moves");
     movesCount.innerHTML = move
-    //scorePanel();
+    scorePanel();
+}
+
+function scorePanel() {
+    if (move == 10) {
+      stars.removeChild(star1);
+    } else if (move == 14) {
+        stars.removeChild(star2);
+      } else if (move == 18) {
+          stars.removeChild(star3);
+        } else {
+            console.log("starpower");
+          }
 }
