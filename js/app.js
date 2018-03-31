@@ -117,6 +117,21 @@ function restart() {
 const reset = document.querySelector(".restart");
 reset.addEventListener("click", restart);
 
+function win() {
+      let modal = document.querySelector(".modal");
+      let h1 = modal.querySelector("h1");
+      if (openedCards.length > 15){
+            //timer();
+            rating();
+            modal.style.display = "block";
+            h1.innerHTML = "Congratulations, you have a score of " + score +
+            " and with a time of " + time
+            + " seconds, if you want to play again click the restart icon";
+      } else {
+          console.log("listening");
+        }
+}
+
 function moveCounter() {
     let movesCount = document.querySelector(".moves");
     movesCount.innerHTML = move
