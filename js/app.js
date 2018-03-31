@@ -9,7 +9,6 @@ const star1 = stars.querySelectorAll("I")[2];
 const star2 = stars.querySelectorAll("I")[1];
 const star3 = stars.querySelectorAll("I")[0];
 const deck = document.querySelector(".deck");
-const deck = document.querySelector(".deck");
 const shownCards = [];
 let matchedCard = document.querySelector(".match");
 let timeStamp = [];
@@ -36,9 +35,9 @@ function shuffle(array) {
 }
 
 function start() {
-    let shuffle = shuffle(cards);
-    shuffle.forEach(function(crd) {
-        deck.appendChild(crd);
+    let deckOfCards = shuffle(cards);
+    deckOfCards.forEach(function(a) {
+        deck.appendChild(a);
     });
 }
 /*shuffles automatically when page loads*/
@@ -121,7 +120,7 @@ reset.addEventListener("click", restart);
 function win() {
       let modal = document.querySelector(".modal");
       let h1 = modal.querySelector("h1");
-      if (openedCards.length > 15){
+      if (shownCards.length > 15){
             timer();
             rating();
             modal.style.display = "block";
