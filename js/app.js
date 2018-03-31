@@ -124,3 +124,8 @@ function scorePanel() {
             console.log("starpower");
           }
 }
+
+const close = document.querySelector(".close");
+close.addEventListener("click", function() {
+    modal.style.display = "none";
+});
