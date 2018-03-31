@@ -71,6 +71,9 @@ for (var i = 0; i < cards.length; i++) {
     card = cards[i];
     card.addEventListener("click", flipCard);
     card.addEventListener("click", moveCounter);
+    card.addEventListener("click", startTime, {
+        once: true,
+    });
 };
 /*Checks to see if the two cards match.
 If they match cards are locked in open position.
@@ -90,7 +93,7 @@ function match() {
       } else {
           setTimeout(function() {
             element[0].classList.toggle("unmatched");
-            element[1].classList.toggle("unmatche");
+            element[1].classList.toggle("unmatched");
             element[0].classList.remove("open");
             element[1].classList.remove("open");
             shownCards.pop([0]);
@@ -102,6 +105,8 @@ function match() {
 to reset board.*/
 function restart() {
     move = 0;
+    while (timeStamp.length > 0){
+    timeStamp.pop();
     for (var i = 0; i < cards.length; i++) {
         cards[i].classList.remove("match");
         cards[i].classList.remove("unmatched");
