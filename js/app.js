@@ -107,16 +107,17 @@ function restart() {
     move = 0;
     while (timeStamp.length > 0){
     timeStamp.pop();
-    for (var i = 0; i < cards.length; i++) {
-        cards[i].classList.remove("match");
-        cards[i].classList.remove("unmatched");
-        cards[i].classList.remove("open");
-        while (shownCards.length > 0) {
-            shownCards.pop();
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].classList.remove("match");
+            cards[i].classList.remove("unmatched");
+            cards[i].classList.remove("open");
+            while (shownCards.length > 0) {
+              shownCards.pop();
+            }
         }
     }
-    start();
-    moveCounter();
+start();
+moveCounter();
 }
 
 const reset = document.querySelector(".restart");
