@@ -5,9 +5,7 @@ let card = document.querySelectorAll(".card");
 let cards = [...card];
 let move = 0;
 const stars = document.querySelector(".stars");
-const star1 = stars.querySelectorAll("I")[2];
-const star2 = stars.querySelectorAll("I")[1];
-const star3 = stars.querySelectorAll("I")[0];
+const star = stars.querySelectorAll("LI");
 const deck = document.querySelector(".deck");
 const shownCards = [];
 let matchedCard = document.querySelector(".match");
@@ -71,9 +69,8 @@ for (var i = 0; i < cards.length; i++) {
     card = cards[i];
     card.addEventListener("click", flipCard);
     card.addEventListener("click", moveCounter);
-    card.addEventListener("click", startTime, {
-        once: true,
-    });
+    card.addEventListener("click", startTime);
+
 };
 /*Checks to see if the two cards match.
 If they match cards are locked in open position.
@@ -105,6 +102,9 @@ function match() {
 to reset board.*/
 function restart() {
     move = 0;
+    star[0].style.visibility = "visible";
+    star[1].style.visibility = "visible";
+    star[2].style.visibility = "visible";
     while (timeStamp.length > 0){
     timeStamp.pop();
     }
@@ -157,11 +157,11 @@ function timer() {
 
 function scorePanel() {
     if (move == 10) {
-      stars.removeChild(star1);
+      star[2].style.visibility = "hidden";
     } else if (move == 14) {
-        stars.removeChild(star2);
+        star[1].style.visibility = "hidden";
       } else if (move == 18) {
-          stars.removeChild(star3);
+          star[0].style.visibility = "hidden";
         } else {
             console.log("starpower");
           }
