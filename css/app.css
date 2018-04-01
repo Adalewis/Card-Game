@@ -16,6 +16,9 @@ body {
     padding: 0;
 }
 
+header {
+    color: #fff;
+}
 body {
     background: #ffffff url('../img/background.jpg'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
@@ -99,6 +102,8 @@ h1 {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    color: #000080;
+    font-size: 30px;
 }
 
 .score-panel .stars {

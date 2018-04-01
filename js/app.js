@@ -99,7 +99,7 @@ function match() {
       }
 }
 /*Function to be called upon when repeat is clicked
-to reset board.*/
+to reset board, score, move count, and timer.*/
 function restart() {
     move = 0;
     star[0].style.visibility = "visible";
@@ -120,10 +120,11 @@ function restart() {
 start();
 moveCounter();
 }
-
+/*click eventlistener placed on repeat icon*/
 const reset = document.querySelector(".restart");
 reset.addEventListener("click", restart);
-
+/*When all cards are matched modal is displayed width
+score and time*/
 function win() {
       let modal = document.querySelector(".modal");
       let h1 = modal.querySelector("h1");
@@ -138,23 +139,25 @@ function win() {
           console.log("listening");
         }
 }
-
+/*inserts move count in score panel*/
 function moveCounter() {
     let movesCount = document.querySelector(".moves");
     movesCount.innerHTML = move
     scorePanel();
 }
-
+/*Time taken on first click*/
 function startTime() {
     beginTime = Date.now();
     timeStamp.push(beginTime);
 }
-
+/*Subtracting starting time from end
+time to find total time it took to complete
+game*/
 function timer() {
     mill = Date.now() - timeStamp[0];
     time = Math.floor(mill/1000);
 }
-
+/*Reduces stars shown as move count increases*/
 function scorePanel() {
     if (move == 10) {
       star[2].style.visibility = "hidden";
@@ -178,7 +181,7 @@ function rating() {
             score = "0 stars";
           }
 }
-
+/*Clicking on x in modal will cause it to close*/
 const close = document.querySelector(".close");
 close.addEventListener("click", function() {
     modal.style.display = "none";
